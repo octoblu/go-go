@@ -3,12 +3,12 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"html/template"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
+	"text/template"
 
 	"github.com/acsellers/inflections"
 	"github.com/codegangsta/cli"
