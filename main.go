@@ -4,8 +4,10 @@ import (
 	"bytes"
 	"fmt"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/acsellers/inflections"
@@ -41,11 +43,11 @@ func run(context *cli.Context) {
 		PROJECTNAME: strings.ToUpper(inflections.Underscore(name)),
 	}
 
-	fmt.Printf("name: %v", name)
 	for _, assetName := range AssetNames() {
-		fmt.Printf("assetName: %v\n", assetName)
 		asset := parseTemplate(vars, assetName)
-		fmt.Println(asset)
+		dir := filepath.Dir(assetName)
+		os.MkdirAll(dir, 0755)
+		ioutil.WriteFile(assetName, []byte(asset), 0644)
 	}
 }
 
