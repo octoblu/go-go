@@ -1,10 +1,14 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"html/template"
 	"log"
 	"os"
+	"strings"
 
+	"github.com/acsellers/inflections"
 	"github.com/codegangsta/cli"
 	"github.com/coreos/go-semver/semver"
 	"github.com/fatih/color"
@@ -12,6 +16,11 @@ import (
 )
 
 var debug = De.Debug("governator:main")
+
+type templateVars struct {
+	ProjectName string
+	PROJECTNAME string
+}
 
 func main() {
 	app := cli.NewApp()
@@ -27,7 +36,29 @@ func run(context *cli.Context) {
 	debug("run")
 	name := getOpts(context)
 
-	fmt.Println("name", name)
+	vars := templateVars{
+		ProjectName: name,
+		PROJECTNAME: strings.ToUpper(inflections.Underscore(name)),
+	}
+
+	fmt.Printf("name: %v", name)
+	for _, assetName := range AssetNames() {
+		fmt.Printf("assetName: %v\n", assetName)
+		asset := parseTemplate(vars, assetName)
+		fmt.Println(asset)
+	}
+}
+
+func parseTemplate(vars templateVars, assetName string) string {
+	asset := MustAsset(assetName)
+	assetStr := string(asset)
+	assetTemplate, err := template.New(assetName).Parse(assetStr)
+	PanicIfError("template.Parse failed", err)
+
+	buffer := bytes.NewBufferString("")
+	assetTemplate.Execute(buffer, vars)
+
+	return buffer.String()
 }
 
 func getOpts(context *cli.Context) string {
@@ -49,4 +80,13 @@ func version() string {
 		log.Panicln(errorMessage, err.Error())
 	}
 	return version.String()
+}
+
+// PanicIfError prints error and dies if error is non nil
+func PanicIfError(msg string, err error) {
+	if err == nil {
+		return
+	}
+
+	log.Panicf("ERROR(%v):\n\n%v", msg, err)
 }

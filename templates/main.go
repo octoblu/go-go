@@ -14,17 +14,17 @@ import (
 	De "github.com/tj/go-debug"
 )
 
-var debug = De.Debug("governator:main")
+var debug = De.Debug("{{.ProjectName}}:main")
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "go-go"
+	app.Name = "{{.ProjectName}}"
 	app.Version = version()
 	app.Action = run
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:   "example, e",
-			EnvVar: "GOGO_EXAMPLE",
+			EnvVar: "{{.PROJECTNAME}}_EXAMPLE",
 			Usage:  "Example string flag",
 		},
 	}
@@ -51,7 +51,7 @@ func run(context *cli.Context) {
 			os.Exit(0)
 		}
 
-		debug("go-go.loop: %v", example)
+		debug("{{.ProjectName}}.loop: %v", example)
 		time.Sleep(1 * time.Second)
 	}
 }
@@ -63,7 +63,7 @@ func getOpts(context *cli.Context) string {
 		cli.ShowAppHelp(context)
 
 		if example == "" {
-			color.Red("  Missing required flag --etcd-uri or GOVERNATOR_ETCD_URI")
+			color.Red("  Missing required flag --example or {{.PROJECTNAME}}_EXAMPLE")
 		}
 		os.Exit(1)
 	}

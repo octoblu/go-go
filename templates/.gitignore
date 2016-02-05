@@ -22,5 +22,5 @@ _testmain.go
 *.exe
 *.test
 *.prof
-go-go
-entrypoint/go-go
+{{.ProjectName}}
+entrypoint/{{.ProjectName}}
