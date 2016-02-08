@@ -1,0 +1,5 @@
+.git
+{{.ProjectName}}
+entrypoint/{{.ProjectName}}
+build.sh
+README.md
