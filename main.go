@@ -45,10 +45,13 @@ func run(context *cli.Context) {
 
 	for _, assetName := range AssetNames() {
 		asset := parseTemplate(vars, assetName)
+
 		dir := filepath.Dir(assetName)
 		os.MkdirAll(dir, 0755)
 		ioutil.WriteFile(assetName, []byte(asset), 0644)
 	}
+
+	os.Chmod("build.sh", 0755)
 }
 
 func parseTemplate(vars templateVars, assetName string) string {
