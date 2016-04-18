@@ -21,6 +21,10 @@ copy() {
   cp $TMP_DIR/$APP_NAME entrypoint/
 }
 
+generate_templates(){
+  go-bindata -prefix templates templates/...
+}
+
 init() {
   rm -rf $TMP_DIR/ \
    && mkdir -p $TMP_DIR/
@@ -45,6 +49,7 @@ panic() {
 
 docker_build() {
   init    || panic "init failed"
+  generate_templates || panic "generate_templates failed"
   build_on_docker || panic "build_on_docker failed"
   run     || panic "run failed"
   copy    || panic "copy failed"
@@ -53,6 +58,7 @@ docker_build() {
 
 local_build() {
   init    || panic "init failed"
+  generate_templates || panic "generate_templates failed"
   build_on_local || panic "build_on_local failed"
   copy    || panic "copy failed"
   package || panic "package failed"
@@ -60,6 +66,7 @@ local_build() {
 
 osx_build() {
   init    || panic "init failed"
+  generate_templates || panic "generate_templates failed"
   build_osx_on_local || panic "build_osx_on_local failed"
 }
 
