@@ -24,3 +24,5 @@ _testmain.go
 *.prof
 {{.ProjectName}}
 entrypoint/{{.ProjectName}}
+go-{{.ProjectName}}
+entrypoint/go-{{.ProjectName}}

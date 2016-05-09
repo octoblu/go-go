@@ -1,5 +1,8 @@
 .git
 {{.ProjectName}}
 entrypoint/{{.ProjectName}}
+go-{{.ProjectName}}
+entrypoint/go-{{.ProjectName}}
 build.sh
+cross-compile.sh
 README.md

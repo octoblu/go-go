@@ -90,20 +90,18 @@ main() {
   local goos="${GOOS}"
   local goarch="${GOARCH}"
 
-  if [ "$mode" == "local" ]; then
-    echo "Local Build"
-    local_build "$goos" "$goarch"
-    exit $?
+  if [ "$mode" == "-h" -o "$mode" == "--help" -o "$mode" == "help" ]; then
+    echo "Usage: ./build.sh (local|docker)"
+    echo "Default build is 'local'"
+    exit 1
   fi
 
   if [ "$mode" == "docker" ]; then
-    echo "Docker Build"
     docker_build
     exit $?
   fi
 
-  echo "Usage: ./build.sh (local|docker)"
-  exit 1
+  local_build "$goos" "$goarch"
 }
 
 main $@

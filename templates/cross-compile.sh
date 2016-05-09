@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TMP_DIR=$PWD/tmp
+TMP_DIR="$PWD/tmp"
 
 if [ -z "$TMP_DIR" ]; then
   echo "no tmp dir"
@@ -11,7 +11,7 @@ build() {
   for goos in darwin linux windows; do
     for goarch in 386 amd64; do
       echo "building: ${goos}-${goarch}"
-      env GOOS="$goos" GOARCH="$goarch" ./build.sh "local" > /dev/null
+      env GOOS="$goos" GOARCH="$goarch" ./build.sh > /dev/null
     done
   done
 }
