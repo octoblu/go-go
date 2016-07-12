@@ -11,7 +11,7 @@ import (
 	"github.com/codegangsta/cli"
 	"github.com/coreos/go-semver/semver"
 	"github.com/fatih/color"
-	De "github.com/tj/go-debug"
+	De "github.com/visionmedia/go-debug"
 )
 
 var debug = De.Debug("{{.ProjectName}}:main")
