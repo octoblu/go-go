@@ -52,6 +52,7 @@ func run(context *cli.Context) {
 	}
 
 	os.Chmod("build.sh", 0755)
+	fmt.Println("To restore dependencies, run: \n\ngvt restore")
 }
 
 func parseTemplate(vars templateVars, assetName string) string {
