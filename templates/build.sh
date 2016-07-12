@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_NAME={{.ProjectName}}
-BUILD_DIR=$PWD/build
+BUILD_DIR=$PWD/dist
 IMAGE_NAME=local/$APP_NAME
 
 build_on_docker() {
