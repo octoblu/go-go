@@ -9,17 +9,10 @@
 			"notests": true
 		},
 		{
-			"importpath": "github.com/urfave/cli",
-			"repository": "https://github.com/urfave/cli",
-			"revision": "v1.19.1",
-			"branch": "master",
-			"notests": true
-		},
-		{
 			"importpath": "github.com/coreos/go-semver/semver",
 			"repository": "https://github.com/coreos/go-semver",
-			"revision": "37bb68f88c4418889f0a9bfea4a5333d36bd15d5",
-			"branch": "master",
+			"revision": "v0.2.0",
+			"branch": "HEAD",
 			"path": "/semver",
 			"notests": true
 		},
@@ -41,6 +34,13 @@
 			"importpath": "github.com/mattn/go-isatty",
 			"repository": "https://github.com/mattn/go-isatty",
 			"revision": "56b76bdf51f7708750eac80fa38b952bb9f32639",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/urfave/cli",
+			"repository": "https://github.com/urfave/cli",
+			"revision": "v1.19.1",
 			"branch": "master",
 			"notests": true
 		},
