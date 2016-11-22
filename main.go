@@ -11,7 +11,7 @@ import (
 	"text/template"
 
 	"github.com/acsellers/inflections"
-	"github.com/codegangsta/cli"
+	"github.com/urfave/cli"
 	"github.com/coreos/go-semver/semver"
 	"github.com/fatih/color"
 	De "github.com/visionmedia/go-debug"
