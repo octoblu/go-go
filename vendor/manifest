@@ -12,28 +12,28 @@
 			"importpath": "github.com/coreos/go-semver/semver",
 			"repository": "https://github.com/coreos/go-semver",
 			"revision": "v0.2.0",
-			"branch": "HEAD",
+			"branch": "master",
 			"path": "/semver",
 			"notests": true
 		},
 		{
 			"importpath": "github.com/fatih/color",
 			"repository": "https://github.com/fatih/color",
-			"revision": "533cd7fd8a85905f67a1753afb4deddc85ea174f",
+			"revision": "v1.1.0",
 			"branch": "master",
 			"notests": true
 		},
 		{
 			"importpath": "github.com/mattn/go-colorable",
 			"repository": "https://github.com/mattn/go-colorable",
-			"revision": "9cbef7c35391cca05f15f8181dc0b18bc9736dbb",
+			"revision": "v0.0.6",
 			"branch": "master",
 			"notests": true
 		},
 		{
 			"importpath": "github.com/mattn/go-isatty",
 			"repository": "https://github.com/mattn/go-isatty",
-			"revision": "56b76bdf51f7708750eac80fa38b952bb9f32639",
+			"revision": "v0.0.1",
 			"branch": "master",
 			"notests": true
 		},
@@ -47,7 +47,7 @@
 		{
 			"importpath": "github.com/visionmedia/go-debug",
 			"repository": "https://github.com/visionmedia/go-debug",
-			"revision": "ff4a55a20a86994118644bbddc6a216da193cc13",
+			"revision": "v2.0.0",
 			"branch": "master",
 			"notests": true
 		},
